@@ -1,8 +1,12 @@
 import numpy as np
 import tensorflow as tf
+from tensorflow import keras
+
+# Import the loss function
+from keras.losses import mean_squared_error
 
 # Load the model
-model = tf.keras.models.load_model('basic_algebra_model.h5')
+model = tf.keras.models.load_model('basic_algebra_model.h5', custom_objects={'mse': mean_squared_error})
 
 # take input from user
 a = int(input("Enter value for 'a': "))
